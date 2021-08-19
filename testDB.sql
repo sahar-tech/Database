@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2021 at 05:26 PM
+-- Generation Time: Aug 17, 2021 at 11:38 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -42,19 +42,32 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`idAddress`, `homeNumber`, `floor`, `street`, `city`, `Commune_idCommune`, `codeZip`) VALUES
+(14, '10-B5', '3', '120', 'barkaty Elbidh', 16, '01019'),
+(19, '13-B2', '4', '90', 'Lizoul Erad', 57, '03010'),
+(24, '13-B9', '11', '34', 'Sidi Ali', 61, '03046'),
 (5, '14-B2', '19', '45', 'Oued sigh', 22, '02002'),
+(16, '15-B3', '8', '23', '1001 loges', 155, '05041'),
 (11, '2-B7', '6', '77', 'dali Ibra', 145, '02047'),
+(17, '23-B6', '12', '102', '18 fivrier', 80, '04033'),
 (10, '33-B9', '3', '55', 'Lakhdharia', 151, '05042'),
+(20, '40-B19', '9', '17', 'Ouled Djamaa', 43, '02001'),
 (6, '54-B13', '80', '125', '400 loges', 15, '03012'),
+(21, '55-B10', '8', '137', 'Ain Ouelet', 123, '05042'),
 (2, '61-B1', '74', '71', 'ain saleh', 55, '05002'),
+(15, '63-B14', '5', '148', 'Lhasacen', 19, '01064'),
 (4, '63-B8', '45', '02', 'bab ElOued', 41, '02015'),
 (3, '64-B4', '77', '07', '05juillet1962', 12, '03012'),
 (1, '65-B3', '73', '132', '8mai1945', 45, '01002'),
 (9, '66-B11', '1', '75', 'Mielexir', 112, '05022'),
 (12, '7-B5', '7', '154', 'Zuio', 160, '03012'),
+(25, '70-B7', '17', '117', 'Nezlat ElAhad', 91, '04033'),
+(18, '73-B11', '10', '13', 'Abdel Hamid', 73, '04013'),
 (8, '78-B6', '2', '23', 'Nadhour', 82, '04006'),
-(7, '8-B17', '103', '124', '300 loges', 103, '050014'),
-(13, '9-B4', '1', '12', '19 mars', 2, '01052');
+(7, '8-B17', '103', '124', '300 loges', 103, '05014'),
+(22, '89-B2', '18', '106', 'ElAmir AbdelKader', 16, '01018'),
+(13, '9-B4', '1', '12', '19 mars', 2, '01052'),
+(23, '90-B1', '04', '130', 'El Beiyadha', 43, '02025'),
+(26, '96-B4', '13', '94', 'lesalles BenBoul3id', 146, '05004');
 
 -- --------------------------------------------------------
 
@@ -82,7 +95,7 @@ CREATE TABLE `buyer` (
 INSERT INTO `buyer` (`idBuyer`, `firstNameB`, `lastNameB`, `birthDayB`, `Address_idAddress`, `emailBuyer`, `phoneBuyer`, `buyerStatus`, `registerCommercialNumberB`, `taxIdentificationNumberB`) VALUES
 (3, 'Ahmed', 'aggab', '1992-05-08', 7, 'ahmed.aggab92@gmail.com', '213661003655', 'enterprise', 'Z98G8D55G83569101', '250W5D2Z5G568F58'),
 (4, 'farah', 'lachraf', '1989-06-13', 8, 'farah.lachraf06@yahoo.com', '213601254301', 'person', '5FCC0006335F6527', 'F65GD5F6Q3300F52C'),
-(2, 'Mohamed', 'Lekrad', '1990-01-12', 6, 'moh.lekrad@yahoo.fr', '213607954457', 'person', 'Q5D685GG585H52N02', '36S8DS5FG3FGG603'),
+(2, 'Mohamed', 'Lekrad', '1990-01-12', 5, 'moh.lekrad@yahoo.fr', '213607954457', 'person', 'Q5D685GG585H52N02', '36S8DS5FG3FGG603'),
 (1, 'Sahar', 'aggab', '1995-05-11', 6, 'aggab.sahar1995@gmail.com', '213697935487', 'person', 'F5D5525S0265F01', '250W5D2Z5F1001E9'),
 (6, 'salah', 'Ahmadi', '1988-12-23', 10, 'ahmadi.salah1988@gmail.com', '213526635865', 'person', 'DG65GH63655G3V6F', '145DFR85G986F253F1A'),
 (5, 'salima', 'mimoune', '1985-11-09', 9, 'mimoune.salima09@hotmail.com', '213791995630', 'enterprise', 'F656D835F62V2G35', '366FGF5G658802608M');
@@ -281,7 +294,7 @@ CREATE TABLE `contact` (
   `birthDayS` date NOT NULL,
   `Address_idAddress` int(11) NOT NULL,
   `emailSeller` varchar(45) NOT NULL,
-  `phoneSeller` int(11) NOT NULL
+  `phoneSeller` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -289,14 +302,9 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`idContact`, `firstNameS`, `lastNameS`, `birthDayS`, `Address_idAddress`, `emailSeller`, `phoneSeller`) VALUES
-(8, 'abdelElhak', 'djarad', '1986-02-10', 1, 'moh.selimani@gmail.com', 2147483647),
-(7, 'ahmed', 'kahla', '1993-03-23', 1, 'moh.selimani@gmail.com', 2147483647),
-(5, 'kamim', 'Aoun Allah', '1981-05-19', 1, 'moh.selimani@gmail.com', 2147483647),
-(6, 'mehdi', 'aggab', '1979-07-21', 1, 'moh.selimani@gmail.com', 2147483647),
-(2, 'Mohamed', 'Mesie', '1985-11-10', 2, 'moh.mesie85@gmail.com', 2147483647),
-(1, 'Mohamed', 'slimani', '1980-01-15', 1, 'moh.selimani@gmail.com', 2147483647),
-(4, 'selim', 'Mohamdi', '1988-12-01', 1, 'moh.selimani@gmail.com', 2147483647),
-(3, 'Yacine', 'Zaghdi', '1990-10-08', 1, 'moh.selimani@gmail.com', 2147483647);
+(2, 'Ahmed', 'Messsauie', '1985-11-10', 15, 'ahmed.messsauie85@gmail.com', '213598741203'),
+(1, 'Mohamed', 'slimani', '1980-01-15', 14, 'moh.selimani@gmail.com', '213694578120'),
+(3, 'Yacine', 'Zaghdi', '1990-10-08', 16, 'YC.zgh90@yahoo.fr', '213632140211');
 
 -- --------------------------------------------------------
 
@@ -306,7 +314,7 @@ INSERT INTO `contact` (`idContact`, `firstNameS`, `lastNameS`, `birthDayS`, `Add
 
 CREATE TABLE `delivery` (
   `idDelivery` int(11) NOT NULL,
-  `deliveryNumber` int(11) NOT NULL,
+  `deliveryNumber` varchar(45) NOT NULL,
   `startDateDelivery` date NOT NULL,
   `Enterprise_idEnterprise` int(11) NOT NULL,
   `Order_idOrder` int(11) NOT NULL,
@@ -317,6 +325,17 @@ CREATE TABLE `delivery` (
   `deliveryDuration` int(11) NOT NULL,
   `linkGPS` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `delivery`
+--
+
+INSERT INTO `delivery` (`idDelivery`, `deliveryNumber`, `startDateDelivery`, `Enterprise_idEnterprise`, `Order_idOrder`, `Address_idAddress`, `endDateDelivery`, `deliveryStatus`, `deliveryType`, `deliveryDuration`, `linkGPS`) VALUES
+(2, '5DRF5D58525', '2021-07-11', 1, 4, 2, '2021-07-26', 'delivered', 'pointSeller', 11, 'https://linkGPS.com/Dlvr2'),
+(4, '5DRF5D58525', '2021-08-09', 2, 5, 5, '2021-08-24', 'waiting', 'home', 15, 'https://linkGPS.com/Dlvr4'),
+(3, 'A74D8G45201', '2021-09-10', 2, 2, 4, '2021-09-25', 'inProgress', 'pointSeller', 15, 'https://linkGPS.com/Dlvr3'),
+(1, 'L5DS7F10SD201', '2021-09-01', 1, 1, 11, '2021-09-12', 'inProgress', 'adaptedPoint', 11, 'https://linkGPS.com/Dlvr1'),
+(5, 'R701O8J12H01', '2021-09-03', 3, 3, 13, '2021-09-08', 'inProgress', 'adaptedPoint', 5, 'https://linkGPS.com/Dlvr5');
 
 -- --------------------------------------------------------
 
@@ -330,6 +349,21 @@ CREATE TABLE `deliverypointline` (
   `Enterprise_idEnterprise` int(11) NOT NULL,
   `deliveryPointNumber` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `deliverypointline`
+--
+
+INSERT INTO `deliverypointline` (`idDeliveryPointLine`, `Address_idAddress`, `Enterprise_idEnterprise`, `deliveryPointNumber`) VALUES
+(2, 11, 1, 2),
+(3, 12, 1, 2),
+(1, 1, 2, 1),
+(5, 22, 2, 4),
+(6, 23, 2, 4),
+(7, 24, 2, 4),
+(4, 13, 3, 1),
+(8, 25, 3, 3),
+(9, 26, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -360,9 +394,9 @@ CREATE TABLE `enterprise` (
 --
 
 INSERT INTO `enterprise` (`idEnterprise`, `enterpriseName`, `town`, `Contact_idContact`, `Address_idAddress`, `webSite`, `taxIdentificationNumberS`, `registerCommercialNumberS`, `accountNumber`, `accountType`, `publicPrivate`, `logoImage`, `transportCosts`, `deliveryTime`, `reservationTime`) VALUES
-(4, 'In_Souf', 'DifOued', 4, 5, './website3/seller/A4d/index3.html', 0, 'G8D0F15D0036D', '14580314023', 'Baraka', 'private', './image/base64/A9j/logo3.png', 1700, 9, 10),
+(3, 'In_Souf', 'DifOued', 1, 3, './website3/seller/A4d/index3.html', 0, 'G8D0F15D0036D', '1458031023D4', 'Baraka', 'private', './image/base64/A9j/logo3.png', 1700, 9, 10),
 (2, 'IT_Pro', 'Hanmour', 3, 4, './website2/seller/A4d/index2.html', 0, '56ALK5D6FG36D', '145803270012', 'Khalidj', 'private', './image/base64/A9j/logo2.png', 1800, 15, 7),
-(1, 'IT_Techno', 'ElMansoura', 2, 2, './website1/seller/A4d/index1.html', 0, '56A58463553DFG36D', '124563270012', 'Badr', 'public', './image/base64/A9j/logo1.png', 1500, 11, 5);
+(1, 'IT_Techno', 'ElMansoura', 2, 2, './website1/seller/A4d/index1.html', 0, '56A58463553S4S', '124563270012', 'Badr', 'public', './image/base64/A9j/logo1.png', 1500, 11, 5);
 
 -- --------------------------------------------------------
 
@@ -382,6 +416,17 @@ CREATE TABLE `order` (
   `tva` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`idOrder`, `orderNumber`, `dateOrder`, `Enterprise_idEnterprise`, `Buyer_idBuyer`, `orderStatus`, `orderTotal`, `totalOutsideTax`, `tva`) VALUES
+(4, 'A584A65DS56D6', '2021-06-15', 1, 2, 'paid', 3190, 3060, 130),
+(5, 'A584A65DS56D6', '2021-07-29', 2, 2, 'paid', 1200, 1200, 0),
+(3, 'A584A65DS56D6', '2021-08-14', 3, 1, 'waiting', 2020, 1900, 120),
+(1, 'A584A65DS56D6', '2021-08-17', 1, 2, 'reserved', 1600, 1500, 100),
+(2, 'G52D5F5D21F01', '2021-08-18', 2, 1, 'pending', 2250, 2100, 150);
+
 -- --------------------------------------------------------
 
 --
@@ -396,6 +441,20 @@ CREATE TABLE `orderline` (
   `total` float NOT NULL,
   `discount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orderline`
+--
+
+INSERT INTO `orderline` (`idOrderLine`, `Order_idOrder`, `Product_idProduct`, `quantity`, `total`, `discount`) VALUES
+(1, 1, 1, 2, 800, 0),
+(2, 1, 2, 7, 700, 0),
+(3, 2, 1, 4, 1600, 0),
+(4, 2, 4, 2, 500, 0),
+(5, 3, 5, 2, 1900, 0),
+(6, 4, 6, 2, 200, 0),
+(8, 4, 8, 3, 1200, 0),
+(7, 5, 7, 1, 1060, 0);
 
 -- --------------------------------------------------------
 
@@ -421,14 +480,14 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`idProduct`, `productRef`, `productName`, `Enterprise_idEnterprise`, `price`, `unit`, `category`, `productImage`, `quantityStock`, `productDescription`) VALUES
-(9, '11D0GF5V00555', 'Regular medicines', 1, '120000', 'DZD', 'CA2', 'image/product1/CA2/pro5.jpg', 215, 'moyen product .. bla bla bla bla'),
-(11, '365DGF65FH9GF', 'Cameras', 1, '630000', 'DZD', 'CA5', 'image/product1/CA5/pro7.jpg', 189, 'ok product .. bla bla bla bla'),
-(10, '36HF3VH355HF3', 'Computers', 2, '550000', 'DZD', 'CA1', 'image/product1/CA1/pro6.jpg', 365, 'bad product .. bla bla bla bla'),
-(3, '4S5F025R5G005', 'blue_dress', 2, '200000', 'DZD', 'CA4', 'image/product1/CA4/pro3.jpg', 100, 'very goood product .. bla bla bla bla'),
-(4, '5D2G521G02200', 'Flowers', 2, '90000', 'DZD', 'CA5', 'image/product1/CA5/pro4.jpg', 136, 'not bad product .. bla bla bla bla'),
-(2, 'A6565E5FD22T5', 'black_dress', 1, '1500000', 'DZD', 'CA3', 'image/product1/CA3/pro2.jpg', 150, 'goood product .. bla bla bla bla'),
-(12, 'D54GGF584G520', 'Sports equipment', 2, '195000', 'DZD', 'CA3', 'image/product1/CA3/pro8.jpg', 320, 'moyen product .. bla bla bla bla'),
-(1, 'G65F65F660G52', 'black_dress', 1, '1490000', 'DZD', 'CA3', 'image/product1/CA3/pro1.jpg', 15, 'goood product .. bla bla bla bla');
+(5, '11D0GF5V00555', 'Regular medicines', 1, '950', 'DZD', 'CA2', 'image/product1/CA2/pro5.jpg', 215, 'moyen product .. bla bla bla bla'),
+(7, '365DGF65FH9GF', 'Cameras', 1, '1060', 'DZD', 'CA5', 'image/product1/CA5/pro7.jpg', 189, 'ok product .. bla bla bla bla'),
+(6, '36HF3VH355HF3', 'Computers', 2, '100', 'DZD', 'CA1', 'image/product1/CA1/pro6.jpg', 365, 'bad product .. bla bla bla bla'),
+(3, '4S5F025R5G005', 'blue_dress', 2, '400', 'DZD', 'CA4', 'image/product1/CA4/pro3.jpg', 100, 'very goood product .. bla bla bla bla'),
+(4, '5D2G521G02200', 'Flowers', 2, '250', 'DZD', 'CA5', 'image/product1/CA5/pro4.jpg', 136, 'not bad product .. bla bla bla bla'),
+(2, 'A6565E5FD22T5', 'black_dress', 1, '100', 'DZD', 'CA3', 'image/product1/CA3/pro2.jpg', 150, 'goood product .. bla bla bla bla'),
+(8, 'D54GGF584G520', 'Sports equipment', 2, '1200', 'DZD', 'CA3', 'image/product1/CA3/pro8.jpg', 320, 'moyen product .. bla bla bla bla'),
+(1, 'G65F65F660G52', 'black_dress', 1, '400', 'DZD', 'CA3', 'image/product1/CA3/pro1.jpg', 165, 'goood product .. bla bla bla bla');
 
 -- --------------------------------------------------------
 
@@ -438,13 +497,24 @@ INSERT INTO `product` (`idProduct`, `productRef`, `productName`, `Enterprise_idE
 
 CREATE TABLE `transaction` (
   `idTransaction` int(11) NOT NULL,
-  `transactionNumber` int(11) NOT NULL,
+  `transactionNumber` varchar(45) NOT NULL,
   `transactionDate` date NOT NULL,
   `Order_idOrder` int(11) NOT NULL,
   `transactionStatus` enum('success','failed','cancel','waiting') NOT NULL,
   `paymentMethod` enum('dhahabia','cib','virement') NOT NULL,
   `failureDescription` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transaction`
+--
+
+INSERT INTO `transaction` (`idTransaction`, `transactionNumber`, `transactionDate`, `Order_idOrder`, `transactionStatus`, `paymentMethod`, `failureDescription`) VALUES
+(5, '45H6654G870G', '2021-07-29', 5, 'success', 'dhahabia', ''),
+(1, '54GH0Y84G50K', '2021-08-17', 1, 'waiting', 'virement', ''),
+(4, '654HD8453RT4', '2021-06-15', 4, 'success', 'cib', ''),
+(2, 'K7U8V1G8X2J09', '2021-08-18', 2, 'waiting', 'virement', ''),
+(3, 'U5P54J48220K2', '2021-08-14', 3, 'waiting', 'virement', '');
 
 -- --------------------------------------------------------
 
@@ -636,7 +706,7 @@ ALTER TABLE `wilaya`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `idAddress` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idAddress` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `buyer`
@@ -660,13 +730,13 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `delivery`
 --
 ALTER TABLE `delivery`
-  MODIFY `idDelivery` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idDelivery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `deliverypointline`
 --
 ALTER TABLE `deliverypointline`
-  MODIFY `idDeliveryPointLine` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idDeliveryPointLine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `enterprise`
@@ -678,13 +748,13 @@ ALTER TABLE `enterprise`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `idOrder` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idOrder` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `orderline`
 --
 ALTER TABLE `orderline`
-  MODIFY `idOrderLine` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idOrderLine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -696,7 +766,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `idTransaction` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idTransaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `wilaya`
