@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : jeu. 02 sep. 2021 à 01:42
--- Version du serveur :  10.4.14-MariaDB
--- Version de PHP : 7.2.33
+-- Host: 127.0.0.1
+-- Generation Time: Aug 18, 2021 at 12:27 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `test_db`
+-- Database: `test_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `address`
+-- Table structure for table `address`
 --
 
 CREATE TABLE `address` (
@@ -38,7 +38,7 @@ CREATE TABLE `address` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `address`
+-- Dumping data for table `address`
 --
 
 INSERT INTO `address` (`idAddress`, `homeNumber`, `floor`, `street`, `city`, `Commune_idCommune`, `codeZip`) VALUES
@@ -72,7 +72,7 @@ INSERT INTO `address` (`idAddress`, `homeNumber`, `floor`, `street`, `city`, `Co
 -- --------------------------------------------------------
 
 --
--- Structure de la table `buyer`
+-- Table structure for table `buyer`
 --
 
 CREATE TABLE `buyer` (
@@ -85,28 +85,25 @@ CREATE TABLE `buyer` (
   `phoneBuyer` varchar(45) NOT NULL,
   `buyerStatus` enum('person','enterprise') NOT NULL,
   `registerCommercialNumberB` varchar(45) DEFAULT NULL,
-  `taxIdentificationNumberB` varchar(45) DEFAULT NULL,
-  `webSiteB` varchar(45) DEFAULT NULL,
-  `articleBuyer` varchar(45) DEFAULT NULL,
-  `enterpriseNameBuyer` varchar(45) DEFAULT NULL
+  `taxIdentificationNumberB` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `buyer`
+-- Dumping data for table `buyer`
 --
 
-INSERT INTO `buyer` (`idBuyer`, `firstNameB`, `lastNameB`, `birthDayB`, `Address_idAddress`, `emailBuyer`, `phoneBuyer`, `buyerStatus`, `registerCommercialNumberB`, `taxIdentificationNumberB`, `webSiteB`, `articleBuyer`, `enterpriseNameBuyer`) VALUES
-(3, 'Ahmed', 'aggab', '1992-05-08', 7, 'ahmed.aggab92@gmail.com', '213661003655', 'enterprise', 'Z98G8D55G83569101', '250W5D2Z5G568F58', NULL, NULL, NULL),
-(4, 'farah', 'lachraf', '1989-06-13', 8, 'farah.lachraf06@yahoo.com', '213601254301', 'person', '5FCC0006335F6527', 'F65GD5F6Q3300F52C', NULL, NULL, NULL),
-(2, 'Mohamed', 'Lekrad', '1990-01-12', 5, 'moh.lekrad@yahoo.fr', '213607954457', 'person', 'Q5D685GG585H52N02', '36S8DS5FG3FGG603', NULL, NULL, NULL),
-(1, 'Sahar', 'aggab', '1995-05-11', 6, 'aggab.sahar1995@gmail.com', '213697935487', 'person', 'F5D5525S0265F01', '250W5D2Z5F1001E9', NULL, NULL, NULL),
-(6, 'salah', 'Ahmadi', '1988-12-23', 10, 'ahmadi.salah1988@gmail.com', '213526635865', 'person', 'DG65GH63655G3V6F', '145DFR85G986F253F1A', NULL, NULL, NULL),
-(5, 'salima', 'mimoune', '1985-11-09', 9, 'mimoune.salima09@hotmail.com', '213791995630', 'enterprise', 'F656D835F62V2G35', '366FGF5G658802608M', NULL, NULL, NULL);
+INSERT INTO `buyer` (`idBuyer`, `firstNameB`, `lastNameB`, `birthDayB`, `Address_idAddress`, `emailBuyer`, `phoneBuyer`, `buyerStatus`, `registerCommercialNumberB`, `taxIdentificationNumberB`) VALUES
+(3, 'Ahmed', 'aggab', '1992-05-08', 7, 'ahmed.aggab92@gmail.com', '213661003655', 'enterprise', 'Z98G8D55G83569101', '250W5D2Z5G568F58'),
+(4, 'farah', 'lachraf', '1989-06-13', 8, 'farah.lachraf06@yahoo.com', '213601254301', 'person', '5FCC0006335F6527', 'F65GD5F6Q3300F52C'),
+(2, 'Mohamed', 'Lekrad', '1990-01-12', 5, 'moh.lekrad@yahoo.fr', '213607954457', 'person', 'Q5D685GG585H52N02', '36S8DS5FG3FGG603'),
+(1, 'Sahar', 'aggab', '1995-05-11', 6, 'aggab.sahar1995@gmail.com', '213697935487', 'person', 'F5D5525S0265F01', '250W5D2Z5F1001E9'),
+(6, 'salah', 'Ahmadi', '1988-12-23', 10, 'ahmadi.salah1988@gmail.com', '213526635865', 'person', 'DG65GH63655G3V6F', '145DFR85G986F253F1A'),
+(5, 'salima', 'mimoune', '1985-11-09', 9, 'mimoune.salima09@hotmail.com', '213791995630', 'enterprise', 'F656D835F62V2G35', '366FGF5G658802608M');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commune`
+-- Table structure for table `commune`
 --
 
 CREATE TABLE `commune` (
@@ -116,7 +113,7 @@ CREATE TABLE `commune` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `commune`
+-- Dumping data for table `commune`
 --
 
 INSERT INTO `commune` (`idCommune`, `communeName`, `Wilaya_idWilaya`) VALUES
@@ -287,7 +284,7 @@ INSERT INTO `commune` (`idCommune`, `communeName`, `Wilaya_idWilaya`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `contact`
+-- Table structure for table `contact`
 --
 
 CREATE TABLE `contact` (
@@ -301,80 +298,77 @@ CREATE TABLE `contact` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `contact`
+-- Dumping data for table `contact`
 --
 
 INSERT INTO `contact` (`idContact`, `firstNameS`, `lastNameS`, `birthDayS`, `Address_idAddress`, `emailSeller`, `phoneSeller`) VALUES
-(2, 'Ahmed', 'Messsauie', '1990-01-12', 15, 'ahmed.messsauie85@gmail.com', '213598741203'),
+(2, 'Ahmed', 'Messsauie', '1985-11-10', 15, 'ahmed.messsauie85@gmail.com', '213598741203'),
 (1, 'Mohamed', 'slimani', '1980-01-15', 14, 'moh.selimani@gmail.com', '213694578120'),
 (3, 'Yacine', 'Zaghdi', '1990-10-08', 16, 'YC.zgh90@yahoo.fr', '213632140211');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `delivery`
+-- Table structure for table `delivery`
 --
 
 CREATE TABLE `delivery` (
   `idDelivery` int(11) NOT NULL,
   `deliveryNumber` varchar(45) NOT NULL,
-  `Buyer_idBuyer` int(11) NOT NULL,
   `startDateDelivery` date NOT NULL,
   `Enterprise_idEnterprise` int(11) NOT NULL,
   `Order_idOrder` int(11) NOT NULL,
   `Address_idAddress` int(11) NOT NULL,
   `endDateDelivery` date NOT NULL,
-  `deliveryEmail` varchar(45) NOT NULL,
-  `deliveryPhone` varchar(45) NOT NULL,
   `deliveryStatus` enum('inProgress','waiting','delivered') NOT NULL,
   `deliveryType` enum('home','adaptedPoint','pointSeller') NOT NULL,
   `deliveryDuration` int(11) NOT NULL,
-  `linkGPS` varchar(45) NOT NULL,
-  `deliveryPoint` varchar(45) NOT NULL
+  `linkGPS` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `delivery`
+-- Dumping data for table `delivery`
 --
 
-INSERT INTO `delivery` (`idDelivery`, `deliveryNumber`, `Buyer_idBuyer`, `startDateDelivery`, `Enterprise_idEnterprise`, `Order_idOrder`, `Address_idAddress`, `endDateDelivery`, `deliveryEmail`, `deliveryPhone`, `deliveryStatus`, `deliveryType`, `deliveryDuration`, `linkGPS`, `deliveryPoint`) VALUES
-(2, '5DRF5D58525', 2, '2021-07-11', 1, 4, 2, '2021-07-26', '', '', 'delivered', 'pointSeller', 11, 'https://linkGPS.com/Dlvr2', 'point 04'),
-(4, '5DRF5D58525', 2, '2021-08-09', 2, 5, 5, '2021-08-24', '', '', 'waiting', 'home', 15, 'https://linkGPS.com/Dlvr4', 'point 05'),
-(3, 'A74D8G45201', 1, '2021-09-10', 2, 2, 4, '2021-09-25', '', '', 'inProgress', 'pointSeller', 15, 'https://linkGPS.com/Dlvr3', 'point 02'),
-(1, 'L5DS7F10SD201', 2, '2021-09-01', 1, 1, 11, '2021-09-12', '', '', 'waiting', 'adaptedPoint', 11, 'https://linkGPS.com/Dlvr1', 'point 01'),
-(5, 'R701O8J12H01', 1, '2021-09-03', 3, 3, 13, '2021-09-08', '', '', 'inProgress', 'adaptedPoint', 5, 'https://linkGPS.com/Dlvr5', 'point 03');
+INSERT INTO `delivery` (`idDelivery`, `deliveryNumber`, `startDateDelivery`, `Enterprise_idEnterprise`, `Order_idOrder`, `Address_idAddress`, `endDateDelivery`, `deliveryStatus`, `deliveryType`, `deliveryDuration`, `linkGPS`) VALUES
+(2, '5DRF5D58525', '2021-07-11', 1, 4, 2, '2021-07-26', 'delivered', 'pointSeller', 11, 'https://linkGPS.com/Dlvr2'),
+(4, '5DRF5D58525', '2021-08-09', 2, 5, 5, '2021-08-24', 'waiting', 'home', 15, 'https://linkGPS.com/Dlvr4'),
+(3, 'A74D8G45201', '2021-09-10', 2, 2, 4, '2021-09-25', 'inProgress', 'pointSeller', 15, 'https://linkGPS.com/Dlvr3'),
+(1, 'L5DS7F10SD201', '2021-09-01', 1, 1, 11, '2021-09-12', 'inProgress', 'adaptedPoint', 11, 'https://linkGPS.com/Dlvr1'),
+(5, 'R701O8J12H01', '2021-09-03', 3, 3, 13, '2021-09-08', 'inProgress', 'adaptedPoint', 5, 'https://linkGPS.com/Dlvr5');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `deliverypoint`
+-- Table structure for table `deliverypointline`
 --
 
-CREATE TABLE `deliverypoint` (
+CREATE TABLE `deliverypointline` (
+  `idDeliveryPointLine` int(11) NOT NULL,
   `Address_idAddress` int(11) NOT NULL,
   `Enterprise_idEnterprise` int(11) NOT NULL,
-  `deliveryPointName` varchar(45) NOT NULL
+  `deliveryPointNumber` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `deliverypoint`
+-- Dumping data for table `deliverypointline`
 --
 
-INSERT INTO `deliverypoint` (`Address_idAddress`, `Enterprise_idEnterprise`, `deliveryPointName`) VALUES
-(11, 1, 'point 1'),
-(12, 1, 'point 2'),
-(1, 2, 'point 3'),
-(22, 2, 'point 4'),
-(23, 2, 'point 5'),
-(24, 2, 'point 6'),
-(13, 3, 'point 7'),
-(25, 3, 'point 8'),
-(26, 3, 'point 9');
+INSERT INTO `deliverypointline` (`idDeliveryPointLine`, `Address_idAddress`, `Enterprise_idEnterprise`, `deliveryPointNumber`) VALUES
+(2, 11, 1, 2),
+(3, 12, 1, 2),
+(1, 1, 2, 1),
+(5, 22, 2, 4),
+(6, 23, 2, 4),
+(7, 24, 2, 4),
+(4, 13, 3, 1),
+(8, 25, 3, 3),
+(9, 26, 3, 3);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `enterprise`
+-- Table structure for table `enterprise`
 --
 
 CREATE TABLE `enterprise` (
@@ -384,35 +378,60 @@ CREATE TABLE `enterprise` (
   `Contact_idContact` int(11) NOT NULL,
   `Address_idAddress` int(11) NOT NULL,
   `webSite` varchar(45) NOT NULL,
-  `taxIdentificationNumberS` varchar(45) NOT NULL,
+  `taxIdentificationNumberS` int(11) NOT NULL,
   `registerCommercialNumberS` varchar(45) NOT NULL,
   `accountNumber` varchar(45) NOT NULL,
   `accountType` varchar(45) NOT NULL,
-  `paymentMethod` set('dhahabia','cib','virement') NOT NULL,
-  `publicPrivate` enum('Public','Private') NOT NULL,
+  `publicPrivate` enum('public','private') NOT NULL,
   `logoImage` varchar(45) NOT NULL,
   `transportCosts` float NOT NULL,
   `deliveryTime` int(11) NOT NULL,
-  `reservationTime` int(11) NOT NULL,
-  `acceptationTime` int(11) NOT NULL DEFAULT 24,
-  `validationTime` int(11) NOT NULL DEFAULT 20,
-  `orderRecoveryTime` int(11) NOT NULL DEFAULT 3,
-  `articleSeller` varchar(45) NOT NULL
+  `reservationTime` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `enterprise`
+-- Dumping data for table `enterprise`
 --
 
-INSERT INTO `enterprise` (`idEnterprise`, `enterpriseName`, `town`, `Contact_idContact`, `Address_idAddress`, `webSite`, `taxIdentificationNumberS`, `registerCommercialNumberS`, `accountNumber`, `accountType`, `paymentMethod`, `publicPrivate`, `logoImage`, `transportCosts`, `deliveryTime`, `reservationTime`, `acceptationTime`, `validationTime`, `orderRecoveryTime`, `articleSeller`) VALUES
-(3, 'In_Souf', 'DifOued', 1, 3, './website3/seller/A4d/index3.html', '8701I818F9830', 'G8D0F15D0036D', '1458031023D4', 'Baraka', 'dhahabia,cib,virement', 'Public', './image/base64/A9j/logo3.png', 1700, 9, 10, 24, 20, 3, 'ARTICLE3'),
-(2, 'IT_Pro', 'Hanmour', 3, 4, './website2/seller/A4d/index2.html', '35F543B12520', '56ALK5D6FG36D', '145803270012', 'Khalidj', 'cib,virement', 'Public', './image/base64/A9j/logo2.png', 1800, 15, 7, 24, 20, 3, 'ARTICLE2'),
-(1, 'IT_Techno', 'ElMansoura', 2, 2, './website1/seller/A4d/index1.html', '35S525452052', '16A58463553S4S', '124563270012', 'Badr', 'dhahabia,cib', 'Public', './image/base64/A9j/logo1.png', 1500, 11, 5, 24, 20, 3, 'ARTICLE1');
+INSERT INTO `enterprise` (`idEnterprise`, `enterpriseName`, `town`, `Contact_idContact`, `Address_idAddress`, `webSite`, `taxIdentificationNumberS`, `registerCommercialNumberS`, `accountNumber`, `accountType`, `publicPrivate`, `logoImage`, `transportCosts`, `deliveryTime`, `reservationTime`) VALUES
+(3, 'In_Souf', 'DifOued', 1, 3, './website3/seller/A4d/index3.html', 0, 'G8D0F15D0036D', '1458031023D4', 'Baraka', 'private', './image/base64/A9j/logo3.png', 1700, 9, 10),
+(2, 'IT_Pro', 'Hanmour', 3, 4, './website2/seller/A4d/index2.html', 0, '56ALK5D6FG36D', '145803270012', 'Khalidj', 'private', './image/base64/A9j/logo2.png', 1800, 15, 7),
+(1, 'IT_Techno', 'ElMansoura', 2, 2, './website1/seller/A4d/index1.html', 0, '56A58463553S4S', '124563270012', 'Badr', 'public', './image/base64/A9j/logo1.png', 1500, 11, 5);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `orderline`
+-- Table structure for table `order`
+--
+
+CREATE TABLE `order` (
+  `idOrder` int(11) NOT NULL,
+  `orderNumber` varchar(45) NOT NULL,
+  `dateOrder` date NOT NULL,
+  `Enterprise_idEnterprise` int(11) NOT NULL,
+  `Buyer_idBuyer` int(11) NOT NULL,
+  `orderStatus` enum('reserved','cancel','waiting','paid','pending') NOT NULL,
+  `orderTotal` float NOT NULL,
+  `totalOutsideTax` float NOT NULL,
+  `tva` float DEFAULT NULL,
+  `cancellationReason` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`idOrder`, `orderNumber`, `dateOrder`, `Enterprise_idEnterprise`, `Buyer_idBuyer`, `orderStatus`, `orderTotal`, `totalOutsideTax`, `tva`, `cancellationReason`) VALUES
+(1, 'A584A65DS56D6', '2021-08-17', 1, 2, 'reserved', 1600, 1500, 100, NULL),
+(4, 'A584A65DS56D6', '2021-06-15', 1, 2, 'paid', 3190, 3060, 130, NULL),
+(2, 'G52D5F5D21F01', '2021-08-18', 2, 1, 'pending', 2250, 2100, 150, NULL),
+(5, 'A584A65DS56D6', '2021-07-29', 2, 2, 'paid', 1200, 1200, 0, NULL),
+(3, 'A584A65DS56D6', '2021-08-14', 3, 1, 'waiting', 2020, 1900, 120, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orderline`
 --
 
 CREATE TABLE `orderline` (
@@ -421,11 +440,11 @@ CREATE TABLE `orderline` (
   `Product_idProduct` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `total` float NOT NULL,
-  `discount` float NOT NULL DEFAULT 0
+  `discount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `orderline`
+-- Dumping data for table `orderline`
 --
 
 INSERT INTO `orderline` (`idOrderLine`, `Order_idOrder`, `Product_idProduct`, `quantity`, `total`, `discount`) VALUES
@@ -441,37 +460,7 @@ INSERT INTO `orderline` (`idOrderLine`, `Order_idOrder`, `Product_idProduct`, `q
 -- --------------------------------------------------------
 
 --
--- Structure de la table `orderpay`
---
-
-CREATE TABLE `orderpay` (
-  `idOrder` int(11) NOT NULL,
-  `orderNumber` varchar(45) NOT NULL,
-  `dateOrder` date NOT NULL,
-  `Enterprise_idEnterprise` int(11) NOT NULL,
-  `Buyer_idBuyer` int(11) NOT NULL,
-  `orderStatus` enum('reserved','cancel','waiting','paid','pending') NOT NULL,
-  `orderTotal` float NOT NULL,
-  `totalOutsideTax` float NOT NULL,
-  `tva` float DEFAULT NULL,
-  `cancellationReason` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `orderpay`
---
-
-INSERT INTO `orderpay` (`idOrder`, `orderNumber`, `dateOrder`, `Enterprise_idEnterprise`, `Buyer_idBuyer`, `orderStatus`, `orderTotal`, `totalOutsideTax`, `tva`, `cancellationReason`) VALUES
-(1, 'A584A65DS56D6', '2021-08-17', 1, 2, 'reserved', 1600, 1500, 100, NULL),
-(4, 'A584A65DS56D6', '2021-06-15', 1, 2, 'paid', 3190, 3060, 130, NULL),
-(2, 'G52D5F5D21F01', '2021-08-18', 2, 1, 'pending', 2250, 2100, 150, NULL),
-(5, 'A584A65DS56D6', '2021-07-29', 2, 2, 'paid', 1200, 1200, 0, NULL),
-(3, 'A584A65DS56D6', '2021-08-14', 3, 1, 'waiting', 2020, 1900, 120, NULL);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `product`
+-- Table structure for table `product`
 --
 
 CREATE TABLE `product` (
@@ -479,7 +468,7 @@ CREATE TABLE `product` (
   `productRef` varchar(45) NOT NULL,
   `productName` varchar(45) NOT NULL,
   `Enterprise_idEnterprise` int(11) NOT NULL,
-  `price` float NOT NULL,
+  `price` varchar(45) NOT NULL,
   `unit` varchar(45) NOT NULL,
   `category` varchar(45) NOT NULL,
   `productImage` varchar(45) NOT NULL,
@@ -488,23 +477,23 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `product`
+-- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`idProduct`, `productRef`, `productName`, `Enterprise_idEnterprise`, `price`, `unit`, `category`, `productImage`, `quantityStock`, `productDescription`) VALUES
-(5, '11D0GF5V00555', 'Regular medicines', 1, 950, '1 piece', 'CA2', 'image/product1/CA2/pro5.jpg', 215, 'good product5 .. bla bla bla bla'),
-(7, '365DGF65FH9GF', 'Cameras', 1, 1060, '1 piece', 'CA9', 'image/product1/CA5/pro7.jpg', 189, 'ok product7 .. bla bla bla bla'),
-(6, '36HF3VH355HF3', 'Computers', 2, 100, '1 oiece', 'CA1', 'image/product1/CA1/pro6.jpg', 365, 'good product6 .. bla bla bla bla'),
-(3, '4S5F025R5G005', 'blue_dress', 2, 400, '1 piece', 'CA4', 'image/product1/CA4/pro3.jpg', 100, 'very goood product3 .. bla bla bla bla'),
-(4, '5D2G521G02200', 'Flowers', 2, 250, '25 piece', 'CA5', 'image/product1/CA5/pro4.jpg', 136, 'good product4 .. bla bla bla bla'),
-(2, 'A6565E5FD22T5', 'pc', 1, 100, '1 piece', 'CA9', 'image/product1/CA3/pro2.jpg', 150, 'goood product2 .. bla bla bla bla'),
-(8, 'D54GGF584G520', 'milk', 2, 1200, '1 litre', 'CA8', 'image/product1/CA3/pro8.jpg', 320, 'moyen product8 .. bla bla bla bla'),
-(1, 'G65F65F660G52', 'rice', 1, 400, '1 kg', 'CA3', 'image/product1/CA3/pro1.jpg', 165, 'goood product1 .. bla bla bla bla');
+(5, '11D0GF5V00555', 'Regular medicines', 1, '950', 'DZD', 'CA2', 'image/product1/CA2/pro5.jpg', 215, 'moyen product .. bla bla bla bla'),
+(7, '365DGF65FH9GF', 'Cameras', 1, '1060', 'DZD', 'CA5', 'image/product1/CA5/pro7.jpg', 189, 'ok product .. bla bla bla bla'),
+(6, '36HF3VH355HF3', 'Computers', 2, '100', 'DZD', 'CA1', 'image/product1/CA1/pro6.jpg', 365, 'bad product .. bla bla bla bla'),
+(3, '4S5F025R5G005', 'blue_dress', 2, '400', 'DZD', 'CA4', 'image/product1/CA4/pro3.jpg', 100, 'very goood product .. bla bla bla bla'),
+(4, '5D2G521G02200', 'Flowers', 2, '250', 'DZD', 'CA5', 'image/product1/CA5/pro4.jpg', 136, 'not bad product .. bla bla bla bla'),
+(2, 'A6565E5FD22T5', 'black_dress', 1, '100', 'DZD', 'CA3', 'image/product1/CA3/pro2.jpg', 150, 'goood product .. bla bla bla bla'),
+(8, 'D54GGF584G520', 'Sports equipment', 2, '1200', 'DZD', 'CA3', 'image/product1/CA3/pro8.jpg', 320, 'moyen product .. bla bla bla bla'),
+(1, 'G65F65F660G52', 'black_dress', 1, '400', 'DZD', 'CA3', 'image/product1/CA3/pro1.jpg', 165, 'goood product .. bla bla bla bla');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `transaction`
+-- Table structure for table `transaction`
 --
 
 CREATE TABLE `transaction` (
@@ -512,28 +501,26 @@ CREATE TABLE `transaction` (
   `transactionNumber` varchar(45) NOT NULL,
   `transactionDate` date NOT NULL,
   `Order_idOrder` int(11) NOT NULL,
-  `Buyer_idBuyer` int(11) NOT NULL,
-  `Enterprise_idEnterprise` int(11) NOT NULL,
   `transactionStatus` enum('success','failed','cancel','waiting') NOT NULL,
   `paymentMethod` enum('dhahabia','cib','virement') NOT NULL,
   `failureDescription` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `transaction`
+-- Dumping data for table `transaction`
 --
 
-INSERT INTO `transaction` (`idTransaction`, `transactionNumber`, `transactionDate`, `Order_idOrder`, `Buyer_idBuyer`, `Enterprise_idEnterprise`, `transactionStatus`, `paymentMethod`, `failureDescription`) VALUES
-(5, '45H6654G870G', '2021-07-29', 5, 5, 1, 'success', 'dhahabia', ''),
-(1, '54GH0Y84G50K', '2021-08-17', 1, 1, 3, 'waiting', 'virement', ''),
-(4, '654HD8453RT4', '2021-06-15', 4, 4, 1, 'success', 'cib', ''),
-(2, 'K7U8V1G8X2J09', '2021-08-18', 2, 2, 1, 'waiting', 'virement', ''),
-(3, 'U5P54J48220K2', '2021-08-14', 3, 3, 2, 'waiting', 'virement', '');
+INSERT INTO `transaction` (`idTransaction`, `transactionNumber`, `transactionDate`, `Order_idOrder`, `transactionStatus`, `paymentMethod`, `failureDescription`) VALUES
+(5, '45H6654G870G', '2021-07-29', 5, 'success', 'dhahabia', ''),
+(1, '54GH0Y84G50K', '2021-08-17', 1, 'waiting', 'virement', ''),
+(4, '654HD8453RT4', '2021-06-15', 4, 'success', 'cib', ''),
+(2, 'K7U8V1G8X2J09', '2021-08-18', 2, 'waiting', 'virement', ''),
+(3, 'U5P54J48220K2', '2021-08-14', 3, 'waiting', 'virement', '');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `wilaya`
+-- Table structure for table `wilaya`
 --
 
 CREATE TABLE `wilaya` (
@@ -542,7 +529,7 @@ CREATE TABLE `wilaya` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `wilaya`
+-- Dumping data for table `wilaya`
 --
 
 INSERT INTO `wilaya` (`idWilaya`, `wilayaName`) VALUES
@@ -606,11 +593,11 @@ INSERT INTO `wilaya` (`idWilaya`, `wilayaName`) VALUES
 (58, 'In Guezzam');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `address`
+-- Indexes for table `address`
 --
 ALTER TABLE `address`
   ADD PRIMARY KEY (`homeNumber`,`floor`,`street`,`city`,`Commune_idCommune`) USING BTREE,
@@ -618,7 +605,7 @@ ALTER TABLE `address`
   ADD KEY `fk_Address_Commune_idx` (`Commune_idCommune`);
 
 --
--- Index pour la table `buyer`
+-- Indexes for table `buyer`
 --
 ALTER TABLE `buyer`
   ADD PRIMARY KEY (`firstNameB`,`lastNameB`,`birthDayB`),
@@ -626,7 +613,7 @@ ALTER TABLE `buyer`
   ADD KEY `fk_Buyer_Address_idx` (`Address_idAddress`) USING BTREE;
 
 --
--- Index pour la table `commune`
+-- Indexes for table `commune`
 --
 ALTER TABLE `commune`
   ADD PRIMARY KEY (`communeName`,`Wilaya_idWilaya`) USING BTREE,
@@ -634,7 +621,7 @@ ALTER TABLE `commune`
   ADD KEY `fk_Commune_Wilaya_idx` (`Wilaya_idWilaya`);
 
 --
--- Index pour la table `contact`
+-- Indexes for table `contact`
 --
 ALTER TABLE `contact`
   ADD PRIMARY KEY (`firstNameS`,`lastNameS`,`birthDayS`),
@@ -642,26 +629,26 @@ ALTER TABLE `contact`
   ADD KEY `fk_Contact_Address_idx` (`Address_idAddress`);
 
 --
--- Index pour la table `delivery`
+-- Indexes for table `delivery`
 --
 ALTER TABLE `delivery`
   ADD PRIMARY KEY (`deliveryNumber`,`startDateDelivery`,`Enterprise_idEnterprise`) USING BTREE,
   ADD UNIQUE KEY `idDelivery_UNIQUE` (`idDelivery`),
   ADD KEY `fk_Delivery_Order_idx` (`Order_idOrder`),
   ADD KEY `fk_Delivery_Enterprise_idx` (`Enterprise_idEnterprise`),
-  ADD KEY `fk_Delivery_Address_idx` (`Address_idAddress`),
-  ADD KEY `fk_Delivery_Buyer_idx` (`Buyer_idBuyer`) USING BTREE;
+  ADD KEY `fk_Delivery_Address_idx` (`Address_idAddress`);
 
 --
--- Index pour la table `deliverypoint`
+-- Indexes for table `deliverypointline`
 --
-ALTER TABLE `deliverypoint`
+ALTER TABLE `deliverypointline`
   ADD PRIMARY KEY (`Enterprise_idEnterprise`,`Address_idAddress`),
-  ADD KEY `fk_DeliveryPoint_Address_idx` (`Address_idAddress`),
-  ADD KEY `fk_DeliveryPoint_Enterprise_idx` (`Enterprise_idEnterprise`);
+  ADD UNIQUE KEY `idDeliveryPointLine_UNIQUE` (`idDeliveryPointLine`),
+  ADD KEY `fk_DeliveryPointLine_Address_idx` (`Address_idAddress`),
+  ADD KEY `fk_DeliveryPointLine_Enterprise_idx` (`Enterprise_idEnterprise`);
 
 --
--- Index pour la table `enterprise`
+-- Indexes for table `enterprise`
 --
 ALTER TABLE `enterprise`
   ADD PRIMARY KEY (`enterpriseName`,`town`),
@@ -671,7 +658,16 @@ ALTER TABLE `enterprise`
   ADD KEY `fk_Enterprise_Address_idx` (`Address_idAddress`);
 
 --
--- Index pour la table `orderline`
+-- Indexes for table `order`
+--
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`Enterprise_idEnterprise`,`idOrder`) USING BTREE,
+  ADD UNIQUE KEY `idOrder_UNIQUE` (`idOrder`),
+  ADD KEY `fk_Order_Enterprise_idx` (`Enterprise_idEnterprise`),
+  ADD KEY `fk_Order_Buyer_idx` (`Buyer_idBuyer`) USING BTREE;
+
+--
+-- Indexes for table `orderline`
 --
 ALTER TABLE `orderline`
   ADD PRIMARY KEY (`Order_idOrder`,`Product_idProduct`),
@@ -680,16 +676,7 @@ ALTER TABLE `orderline`
   ADD KEY `fk_OrderLine_Product_idx` (`Product_idProduct`) USING BTREE;
 
 --
--- Index pour la table `orderpay`
---
-ALTER TABLE `orderpay`
-  ADD PRIMARY KEY (`Enterprise_idEnterprise`,`idOrder`) USING BTREE,
-  ADD UNIQUE KEY `idOrder_UNIQUE` (`idOrder`),
-  ADD KEY `fk_Order_Enterprise_idx` (`Enterprise_idEnterprise`),
-  ADD KEY `fk_Order_Buyer_idx` (`Buyer_idBuyer`) USING BTREE;
-
---
--- Index pour la table `product`
+-- Indexes for table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`productRef`,`productName`,`Enterprise_idEnterprise`) USING BTREE,
@@ -697,17 +684,15 @@ ALTER TABLE `product`
   ADD KEY `fk_Product_Enterprise_idx` (`Enterprise_idEnterprise`);
 
 --
--- Index pour la table `transaction`
+-- Indexes for table `transaction`
 --
 ALTER TABLE `transaction`
   ADD PRIMARY KEY (`transactionNumber`,`transactionDate`,`Order_idOrder`),
   ADD UNIQUE KEY `idTransaction_UNIQUE` (`idTransaction`),
-  ADD KEY `fk_Transaction_Order_idx` (`Order_idOrder`),
-  ADD KEY `fk_Transaction_Buyer` (`Buyer_idBuyer`),
-  ADD KEY `fk_Transaction_Enterprise` (`Enterprise_idEnterprise`);
+  ADD KEY `fk_Transaction_Order_idx` (`Order_idOrder`);
 
 --
--- Index pour la table `wilaya`
+-- Indexes for table `wilaya`
 --
 ALTER TABLE `wilaya`
   ADD PRIMARY KEY (`wilayaName`),
@@ -715,153 +700,156 @@ ALTER TABLE `wilaya`
   ADD UNIQUE KEY `wilayaName_UNIQUE` (`wilayaName`) USING BTREE;
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `address`
+-- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
   MODIFY `idAddress` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT pour la table `buyer`
+-- AUTO_INCREMENT for table `buyer`
 --
 ALTER TABLE `buyer`
   MODIFY `idBuyer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT pour la table `commune`
+-- AUTO_INCREMENT for table `commune`
 --
 ALTER TABLE `commune`
   MODIFY `idCommune` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
 
 --
--- AUTO_INCREMENT pour la table `contact`
+-- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
   MODIFY `idContact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT pour la table `delivery`
+-- AUTO_INCREMENT for table `delivery`
 --
 ALTER TABLE `delivery`
   MODIFY `idDelivery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT pour la table `enterprise`
+-- AUTO_INCREMENT for table `deliverypointline`
+--
+ALTER TABLE `deliverypointline`
+  MODIFY `idDeliveryPointLine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `enterprise`
 --
 ALTER TABLE `enterprise`
   MODIFY `idEnterprise` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pour la table `orderline`
+-- AUTO_INCREMENT for table `order`
+--
+ALTER TABLE `order`
+  MODIFY `idOrder` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `orderline`
 --
 ALTER TABLE `orderline`
   MODIFY `idOrderLine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT pour la table `orderpay`
---
-ALTER TABLE `orderpay`
-  MODIFY `idOrder` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT pour la table `product`
+-- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `idProduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT pour la table `transaction`
+-- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
   MODIFY `idTransaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT pour la table `wilaya`
+-- AUTO_INCREMENT for table `wilaya`
 --
 ALTER TABLE `wilaya`
   MODIFY `idWilaya` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `address`
+-- Constraints for table `address`
 --
 ALTER TABLE `address`
   ADD CONSTRAINT `fk_Address_Commune` FOREIGN KEY (`Commune_idCommune`) REFERENCES `commune` (`idCommune`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `buyer`
+-- Constraints for table `buyer`
 --
 ALTER TABLE `buyer`
   ADD CONSTRAINT `fk_Buyer_Address` FOREIGN KEY (`Address_idAddress`) REFERENCES `address` (`idAddress`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `commune`
+-- Constraints for table `commune`
 --
 ALTER TABLE `commune`
   ADD CONSTRAINT `fk_Commune_Wilaya` FOREIGN KEY (`Wilaya_idWilaya`) REFERENCES `wilaya` (`idWilaya`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `contact`
+-- Constraints for table `contact`
 --
 ALTER TABLE `contact`
   ADD CONSTRAINT `fk_Contact_Address` FOREIGN KEY (`Address_idAddress`) REFERENCES `address` (`idAddress`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `delivery`
+-- Constraints for table `delivery`
 --
 ALTER TABLE `delivery`
   ADD CONSTRAINT `fk_Delivery_Address` FOREIGN KEY (`Address_idAddress`) REFERENCES `address` (`idAddress`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Delivery_Buyer` FOREIGN KEY (`Buyer_idBuyer`) REFERENCES `buyer` (`idBuyer`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Delivery_Enterprise` FOREIGN KEY (`Enterprise_idEnterprise`) REFERENCES `enterprise` (`idEnterprise`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Delivery_Order` FOREIGN KEY (`Order_idOrder`) REFERENCES `orderpay` (`idOrder`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Delivery_Order` FOREIGN KEY (`Order_idOrder`) REFERENCES `order` (`idOrder`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `deliverypoint`
+-- Constraints for table `deliverypointline`
 --
-ALTER TABLE `deliverypoint`
-  ADD CONSTRAINT `fk_DeliveryPoint_Address` FOREIGN KEY (`Address_idAddress`) REFERENCES `address` (`idAddress`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_DeliveryPoint_Enterprise` FOREIGN KEY (`Enterprise_idEnterprise`) REFERENCES `enterprise` (`idEnterprise`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `deliverypointline`
+  ADD CONSTRAINT `fk_DeliveryPointLine_Address` FOREIGN KEY (`Address_idAddress`) REFERENCES `address` (`idAddress`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_DeliveryPointLine_Enterprise` FOREIGN KEY (`Enterprise_idEnterprise`) REFERENCES `enterprise` (`idEnterprise`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `enterprise`
+-- Constraints for table `enterprise`
 --
 ALTER TABLE `enterprise`
   ADD CONSTRAINT `fk_Enterprise_Address` FOREIGN KEY (`Address_idAddress`) REFERENCES `address` (`idAddress`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Enterprise_Contact` FOREIGN KEY (`Contact_idContact`) REFERENCES `contact` (`idContact`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `orderline`
+-- Constraints for table `order`
 --
-ALTER TABLE `orderline`
-  ADD CONSTRAINT `fk_OrderLine_Order` FOREIGN KEY (`Order_idOrder`) REFERENCES `orderpay` (`idOrder`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_OrderLine_Product` FOREIGN KEY (`Product_idProduct`) REFERENCES `product` (`idProduct`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Contraintes pour la table `orderpay`
---
-ALTER TABLE `orderpay`
+ALTER TABLE `order`
   ADD CONSTRAINT `fk_Order_Buyer` FOREIGN KEY (`Buyer_idBuyer`) REFERENCES `buyer` (`idBuyer`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Order_Enterprise` FOREIGN KEY (`Enterprise_idEnterprise`) REFERENCES `enterprise` (`idEnterprise`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `product`
+-- Constraints for table `orderline`
+--
+ALTER TABLE `orderline`
+  ADD CONSTRAINT `fk_OrderLine_Order` FOREIGN KEY (`Order_idOrder`) REFERENCES `order` (`idOrder`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_OrderLine_Product` FOREIGN KEY (`Product_idProduct`) REFERENCES `product` (`idProduct`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `fk_Product_Enterprise` FOREIGN KEY (`Enterprise_idEnterprise`) REFERENCES `enterprise` (`idEnterprise`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `transaction`
+-- Constraints for table `transaction`
 --
 ALTER TABLE `transaction`
-  ADD CONSTRAINT `fk_Transaction_Buyer` FOREIGN KEY (`Buyer_idBuyer`) REFERENCES `buyer` (`idBuyer`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Transaction_Enterprise` FOREIGN KEY (`Enterprise_idEnterprise`) REFERENCES `enterprise` (`idEnterprise`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Transaction_Order` FOREIGN KEY (`Order_idOrder`) REFERENCES `orderpay` (`idOrder`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Transaction_Order` FOREIGN KEY (`Order_idOrder`) REFERENCES `order` (`idOrder`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
